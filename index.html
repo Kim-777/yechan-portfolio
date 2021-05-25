@@ -12,18 +12,20 @@
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="Stylesheet" href="big-size.css">
     <script src="main.js" defer></script>
 </head>
 
 <body>
-    <!-- main(start) -->
+    <!-- wrapper(start) -->
     <div id="wrapper">
+
         <!-- aside(start)-->
         <aside>
             <p>
-                안녕하세요 :)
+                Hello World :)
                 <br>
-                <strong>프론트엔드 개발자</strong> 김예찬입니다.
+                My name is <strong>Kim ye chan</strong>.
             </p>
             <div class="avatar">
                 <img src="image/avatar.gif" />
@@ -53,155 +55,235 @@
             </ul>
         </aside>
         <!-- aside(end)-->
+
+        <!-- main(start) -->
         <main>
+
             <!-- navbar(start) -->
             <nav id="navbar">
                 <ul class="navbar__menu">
-                    <li class="navbar__menu__item active">소개</li>
-                    <li class="navbar__menu__item">기술</li>
-                    <li class="navbar__menu__item">프로젝트</li>
-                    <li class="navbar__menu__item">연락</li>
+                    <li class="navbar__menu__item active">Index</li>
+                    <li class="navbar__menu__item">Skills</li>
+                    <li class="navbar__menu__item">Project</li>
+                    <li class="navbar__menu__item">Contact</li>
                 </ul>
             </nav>
             <!-- navbar(end) -->
-            <!-- home(start) -->
-            <section id="home" class="main">
-            </section>
-            <!-- home(end) -->
+
             <!-- about(start) -->
-            <section id="about" class="main__section">
-                <h1>About Me</h1>
-                <p>
-                    lorem
-                </p>
-                <div class="about__majors">
-                    <div class="major">
-                        <div class="major__icon">
-                            <i class="fas fa-american-sign-language-interpreting"></i>
-                        </div>
-                        <div class="major__title">언어</div>
-                        <div class="major__description">미국식 영어, 프랑스어(진짜 조금), 한국어</div>
-                    </div>
-                    <div class="major">
-                        <div class="major__icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <div class="major__title">IDE</div>
-                        <div class="major__description">Eclipse, IntelliJ</div>
-                    </div>
-                    <div class="major">
-                        <div class="major__icon">
-                            <i class="far fa-object-group"></i>
-                        </div>
-                        <div class="major__title">Framework</div>
-                        <div class="major__description">Spring, Spring Boot, React</div>
-                    </div>
+            <section id="about__section" class="main__section">
+
+                <h1 class="section-title">Index</h1>
+
+                <h2>Before starting a develope</h2>
+                <div id="before-developer">
+                    인천대학교 불어불문학과에 재학했습니다. 어문계열을 나와 영어를 기본적으로 할줄 알아, 개발 공부를 시작 후, 영어로 된 자료들을 보는 것이 많은 도움이 되었습니다. 학부시절 SK 이커머스 관련 수업을 들었습니다.
+                </div>
+                <h2>After I became a developer</h2>
+                <div id="now-developer">
+                    안녕하세요, 프론트엔드 개발자를 꿈꾸는 김예찬입니다. 자바로 개발자 일을 시작했다가, 클라이언트의 인터페이스를 직접적으로 다루는 프론트엔드 개발에 매력을 느껴 프론트엔드로 전향을 했습니다. 요즘은 자바스크립트라는 언어 자체에 매력을 느껴 학습하고 있고, 더 나아가 타입스크립트도 학습하고 있습니다. 
+                </div>
+
+                <h2>What kind of developer I'm going to be</h2>
+                <div id="foward">
+                    같이 일하고 싶은 개발자가 되겠습니다. 개발을 하는 과정에서 혼자 이룰 수 있는 일도 많지만, 함께 해야하는 일의 비중 또한 크다고 생각합니다. 그런 과정 속에서 많은 사람들에게 도움이 될 수 있는 개발자가 되겠습니다.
+                </div>
             </section>
             <!-- about(end) -->
             <!-- skill(start) -->
-            <section id="skill" class="main__section">
-                <h1>Skills</h1>
-                <h2>Skills & Attributes</h2>
-                <p> 쓰고 싶은 말을 씁니다 **</p>
-                <div class="skillset">
-                    <div class="skillset__left">
-                        <h3 class="skillset__title"></h3>
-                        <div class="skill">
-                            <div class="skill__description">
-                                <span>HTML</span>
-                                <span>95%</span>
+            <section id="skill__section" class="main__section">
+                <h1 class="section-title">Skills</h1>
+                <div id="skill-cards">
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>HTML</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:92%;"></div>
+                                </div>
                             </div>
-                            <div class="skill__bar">
-                                <div class="skill__value"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill__description">
-                                <span>CSS</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill__bar">
-                                <div class="skill__value"></div>
+                            <div class="card-back">
+                                <div>
+                                    시멘틱한 구조 잡기, 레이아웃
+                                </div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <div class="skill__description">
-                                <span>Javascript</span>
-                                <span>80%</span>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>CSS</span>
+                                    <span>82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:82%;"></div>
+                                </div>
                             </div>
-                            <div class="skill__bar">
-                                <div class="skill__value"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill__description">
-                                <span>JAVA</span>
-                                <span>92%</span>
-                            </div>
-                            <div class="skill__bar">
-                                <div class="skill__value"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill__description">
-                                <span>Spring</span>
-                                <span>82%</span>
-                            </div>
-                            <div class="skill__bar">
-                                <div class="skill__value"></div>
+                            <div class="card-back">
+                                <div>
+                                    디스플레이, 포지션, 캐스케이딩 이해
+                                </div>
                             </div>
                         </div>
-                    </div>W
-                    <div class="skillset__right">
-                        <div class="tools">
-                            <h3 class="skillset__title">tools</h3>
-                            <ul class="tools__list">
-                                <li><span></span></li>
-                                <li><span></span></li>
-                                <li><span></span></li>
-                                <li><span></span></li>
-                                <li><span></span></li>
-                            </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>Javascript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:90%;"></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    객체, 클로저, 상속에 대한 이해
+                                </div>
+                            </div>
                         </div>
-                        <div class="etc">
-                            <h3 class="skillset__title">etc</h3>
-                            <ul class="etx__list">
-                                <li><span>Git</span></li>
-                                <li><span>google.doc</span></li>
-                                <li><span>notion</span></li>
-                                <li><span>English</span></li>
-                            </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>React</span>
+                                    <span>94%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:94%;"></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    라이프사이클, 상태관리 이해
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>HTTP</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:95%;"></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    서버와의 통신, Header
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>MongoDB</span>
+                                    <span>87%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:87%;"></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    NoSql, Document의 이해
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>GIT</span>
+                                    <span>81%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:81%;"></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    CLI를 통한 형상 관리, remote 소스 코드 보관
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-wrap">
+                            <div class="card-front">
+                                <div class="card-front__text">
+                                    <span>JAVA</span>
+                                    <span>97%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-value" style="width:97%;"></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    OOP, 정적언어, 인터페이스의 이해
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- skill(end) -->
-            <!-- work(start) -->
-            <section id="work" class="main__section">
-                <h1>My work</h1>
-                <h3>Project</h3>
-                <div class="work__categories">
-                    <button class="category__btn">All</button>
-                    <button class="category__btn">Front-end</button>
-                    <button class="category__btn">Back-end</button>
+            <!-- Project(start) -->
+            <section id="project__section" class="main__section">
+                <h1 class="section-title">Project</h1>
+                <div class="project-wrapper">
+                    <div class="project-card">
+                        <div class="project-title">
+                            disney →
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">
+                            linkedin →
+                        </div>                        
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">
+                            amazon →
+                        </div>      
+                    </div>
                 </div>
-                <div class="work__projects">
-                </div>
+
+
+
             </section>
-            <!-- work(end) -->
+            <!-- Project(end) -->
             <!-- contact(start) -->
-            <section id="contact" class="main__section">
-                <h1 class="contact__title">Let's talk</h1>
-                <h2 class="contact">iloo3012@gmail.com</h2>
-                <div class="contact__links">
-                    <a href="" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-                <div class="contact__rights">2020 Kimyechan - All rights reserved</div>
+            <section id="contact__section" class="main__section">
+                <h1 class="section-title">Contact</h1>
             </section>
             <!-- contact(end) -->
         </main>
+        <!-- main(end) -->
     </div>
-    <!-- main(end) -->
+    <!-- wrapper(end) -->
+
+    <!-- footer(start) -->
+    <footer>
+        2021, <strong>김예찬</strong>의 포토 폴리오
+        <br>
+        방문해 주셔서 감사합니다.
+    </footer>
+    <!-- footer(end) -->
+
 </body>
 
 </html>
