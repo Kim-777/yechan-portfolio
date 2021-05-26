@@ -32,7 +32,6 @@
         justify-content: flex-start;
         padding-top:20px;
         margin-top: 0;
-        transition: all 300ms;
     }
 
     .navbar__menu__item:first-child {
