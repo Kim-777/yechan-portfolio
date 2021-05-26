@@ -1,7 +1,14 @@
-let currentStatus = 0; // 컴퓨터 디스플레이 0, 모바일 1
-const mainSection = document.querySelectorAll('.main__section');
-let currentSection = 1; // 현재 섹션
+'use strict';
 
+// variable
+let currentStatus = 0; // 컴퓨터 디스플레이 0, 모바일 1
+let currentSection = 1; // 현재 섹션
+let navOffsetTop = null;
+//  DOM
+const mainSection = document.querySelectorAll('.main__section');
+const navbar = document.querySelector('#navbar');
+
+// function
 const setIndexHandler = () => {
     if(window.innerWidth > 994) {
         currentStatus = 0;
@@ -21,8 +28,29 @@ const setIndexHandler = () => {
     }
 }
 
-window.addEventListener('load', setIndexHandler)
+const setNavOffsetTop = () => {
+    navOffsetTop = navbar.offsetTop
+    console.log(navOffsetTop);
+}
 
+const setNavBackground = () => {
+    console.log('window.pageYOffset', window.pageYOffset, 'navOffsetTop', navOffsetTop);
+    if(window.pageYOffset > navOffsetTop) {
+        navbar.classList.add('navbar-background');
+    } else {
+        navbar.classList.remove('navbar-background');
+    }
+}
+
+// event handlers
+
+window.addEventListener('load', () => {
+    setIndexHandler();
+    setNavOffsetTop();
+});
+window.addEventListener('scroll', () => {
+    setNavBackground();
+})
 
 
 let tmpStatus = null;
@@ -34,9 +62,13 @@ window.addEventListener('resize', () => {
     }
 
     if(currentStatus === tmpStatus) {
-        console.log(currentStatus, tmpStatus);
+        // console.log(currentStatus, tmpStatus);
     } else {
         setIndexHandler();
         currentStatus = tmpStatus;
+    }
+
+    if(currentStatus) {
+        setNavOffsetTop();
     }
 })
