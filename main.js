@@ -4,20 +4,22 @@
 let currentStatus = 0; // 컴퓨터 디스플레이 0, 모바일 1
 let currentSection = 0; // 현재 섹션
 let navOffsetTop = null;
+
 //  DOM
 const mainSection = document.querySelectorAll('.main__section');
 const navbar = document.querySelector('#navbar');
 const navMenu = document.querySelector('.navbar__menu');
+const arrowUp = document.querySelector('.arrow-up');
+const wrapper = document.querySelector('#wrapper');
 
-
-console.log(navMenu.children);
-for(let menu of navMenu.children) {
-    console.log(menu);
-}
+// console.log(navMenu.children);
+// for(let menu of navMenu.children) {
+//     console.log(menu);
+// }
 
 const mobileIndexHandler = (event) => {
-    console.log('here')
-    console.log(event.target.dataset.link);
+    // console.log('here')
+    // console.log(event.target.dataset.link);
     const target = event.target;
     const link = target.dataset.link;
     if(!link) {
@@ -28,7 +30,7 @@ const mobileIndexHandler = (event) => {
 }
 
 const computerIndexHandler = (event) => {
-    console.log('here2');
+    // console.log('here2');
     if(!event.target.dataset.index) return;
     currentSection = parseInt(event.target.dataset.index);
     for(let section of mainSection) {
@@ -77,11 +79,11 @@ const setIndexHandler = () => {
 
 const setNavOffsetTop = () => {
     navOffsetTop = navbar.offsetTop
-    console.log(navOffsetTop);
+    // console.log(navOffsetTop);
 }
 
 const setNavBackground = () => {
-    console.log('window.pageYOffset', window.pageYOffset, 'navOffsetTop', navOffsetTop);
+    // console.log('window.pageYOffset', window.pageYOffset, 'navOffsetTop', navOffsetTop);
     if(window.pageYOffset > navOffsetTop) {
         navbar.classList.add('navbar-background');
     } else {
@@ -92,7 +94,7 @@ const setNavBackground = () => {
 // event handlers
 
 window.addEventListener('load', () => {
-    console.log(window.innerWidth)
+    // console.log(window.innerWidth)
     if(window.innerWidth > 994) {
         currentStatus = 0
     } else {
@@ -104,7 +106,19 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('scroll', () => {
     setNavBackground();
+    if(window.pageYOffset > 800) {
+        arrowUp.classList.add('visible');
+    } else {
+        arrowUp.classList.remove('visible');
+    }
 })
+
+
+arrowUp.addEventListener('click', () => {
+    // console.log(window.pageYOffset);
+    wrapper.scrollIntoView({behavior: "smooth"});
+})
+
 
 
 
@@ -129,3 +143,16 @@ window.addEventListener('resize', () => {
         setNavOffsetTop();
     }
 })
+
+// nav click event
+navMenu.addEventListener('click', (event) => {
+    if(!event.target.dataset.index) return;
+    for(let menu of navMenu.children) {
+        if(menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            break;
+        }
+    }
+
+    event.target.classList.add('active');
+});

@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kim ye chan's portfolio</title>
+    <title>Kimyechan's portfolio</title>
     <meta name="description" content="portfolio">
     <meta name="author" content="Kimyechan">
     <link rel="icon" type="image/png" href="image/favicon.png">
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="Stylesheet" href="big-size.css">
     <script src="main.js" defer></script>
@@ -28,7 +29,7 @@
                 My name is <strong>Kim ye chan</strong>.
             </p>
             <div class="avatar">
-                <img src="image/avatar.gif" />
+                <img src="image/avatar.png" />
             </div>
             <ul class="aside__info">
                 <li>
@@ -37,18 +38,18 @@
                     </a>
                 </li>
                 <li>
-                    인천대학교
+                    Incheon National University
                 </li>
                 <li>
-                    부천시 까치로 20번길
+                    Kkachi-ro 20beon-gil, Bucheon-si
                 </li>
                 <li>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="repo">
+                    <a href="https://github.com/Kim-777" target="_blank" rel="noopener noreferrer" class="repo">
                         github →
                     </a>
                 </li>
                 <li>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="repo">
+                    <a href="https://velog.io/@wabbang" target="_blank" rel="noopener noreferrer" class="repo">
                         blog →
                     </a>
                 </li>
@@ -72,27 +73,36 @@
 
             <!-- about(start) -->
             <section id="index" class="main__section">
-
                 <h1 class="section-title">Index</h1>
-
-                <h2>Before starting a develope</h2>
-                <div id="before-developer">
-                    인천대학교 불어불문학과에 재학했습니다. 어문계열을 나와 영어를 기본적으로 할줄 알아, 개발 공부를 시작 후, 영어로 된 자료들을 보는 것이 많은 도움이 되었습니다. 학부시절 SK 이커머스 관련 수업을 들었습니다.
+                <p class="section-p">
+                    생각하고, 대화하는 것을 좋아합니다. 배우는 것에 두려움이 없고, 항상 새로운 것을 찾아 다닙니다. 
+                </p>
+                <div class="index-card">
+                    <h2>The reason why I became interested in development</h2>
+                    <div id="before-developer">
+                        대학교 때, 이커머스와 창업에 대한 수업을 듣게 되었습니다. 이커머스의 급속한 성장 속에는 IT라는 기반의 성장이 뿌리가 된다는 걸 알게 되었고, 당연하게 사용하던 핸드폰, 컴퓨터, 그리고 즐겨하던 게임들까지 모든게 어떻게 동작하는지 흥미가 가기 시작했습니다.
+                    </div>
                 </div>
-                <h2>After I became a developer</h2>
-                <div id="now-developer">
-                    안녕하세요, 프론트엔드 개발자를 꿈꾸는 김예찬입니다. 자바로 개발자 일을 시작했다가, 클라이언트의 인터페이스를 직접적으로 다루는 프론트엔드 개발에 매력을 느껴 프론트엔드로 전향을 했습니다. 요즘은 자바스크립트라는 언어 자체에 매력을 느껴 학습하고 있고, 더 나아가 타입스크립트도 학습하고 있습니다. 
+                <div class="index-card">
+                    <h2>After I became a developer</h2>
+                    <div id="now-developer">
+                        자바 개발자로 커리어를 시작했지만, 일을 할수록 클라이언트와 직접적으로 소통하는 UI와 UX에 매력을 느꼈습니다. 많은 기술들이 쏟아져 나오는 프론트엔드의 생태계가 재밌고, 개발하는 일이 즐겁습니다.  
+                    </div>
                 </div>
-
-                <h2>What kind of developer I'm going to be</h2>
-                <div id="foward">
-                    같이 일하고 싶은 개발자가 되겠습니다. 개발을 하는 과정에서 혼자 이룰 수 있는 일도 많지만, 함께 해야하는 일의 비중 또한 크다고 생각합니다. 그런 과정 속에서 많은 사람들에게 도움이 될 수 있는 개발자가 되겠습니다.
+                <div class="index-card">
+                    <h2>What kind of developer I'm going to be</h2>
+                    <div id="foward">
+                        커뮤니케이션을 <strong>잘</strong>하는 개발자를 지향합니다. 사용자와 소통하는 인터페이스를 다룰때는 디테일하고 사용자 중심적이게 구현하고, 같은 팀원들과 협업할 때는 편하고 말이 잘통하는 같이 일하고 싶은 개발자가 되겠습니다.
+                    </div>
                 </div>
             </section>
             <!-- about(end) -->
             <!-- skill(start) -->
             <section id="skill" class="main__section">
                 <h1 class="section-title">Skills</h1>
+                <p class="section-p">
+                    새로운 기술을 배우는 것이 즐겁습니다. 필요한 기술을 빠르게 습득하지만, 각 기술의 핵심 내용을 정확히 파악합니다.
+                </p>
                 <div id="skill-cards">
                     <div class="skill-card">
                         <div class="skill-wrap">
@@ -244,21 +254,108 @@
             <!-- Project(start) -->
             <section id="project" class="main__section">
                 <h1 class="section-title">Project</h1>
+                <p class="section-p">
+                    지금까지의 결과물들입니다. 
+                </p>
                 <div class="project-wrapper">
                     <div class="project-card">
-                        <div class="project-title">
-                            disney →
+                        <img class="project-back" src="/image/disney.jpg" /> 
+                        <div class="project-content">
+                            <div class="project-title">
+                                disney clone
+                            </div>
+                            <p class="project-period">
+                                2021.5.21~2021.5.25
+                            </p>
+                            <p class="project-title">
+                                Stack
+                            </p>
+                            <div class="project-line">
+                            </div>
+                            <div class="project-stack">
+                                <img src="image/javascript.jpg">
+                                <img src="image/react.png">
+                                <img src="image/redux.png">
+                                <img src="image/styled-component.jpg">
+                                <img src="image/firebase.png">
+                            </div>
+                            <p class="project-text">
+                                • 반응형 레이아웃 <br/>
+                                • redux를 통한 상태관리 <br/>
+                                • Styled-component 스타일링 <br/>
+                                • firebase Auth 기능 구현 <br/>
+                                • firebase를 통한 배포 <br/>
+                            </p>
+                            <a class="project-link">
+                                Github Link →
+                            </a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-title">
-                            linkedin →
-                        </div>                        
+                        <img class="project-back" src="/image/linkedin.png" /> 
+                        <div class="project-content">
+                            <div class="project-title">
+                                Linkedin clone
+                            </div>
+                            <p class="project-period">
+                                2021.5.21~2021.5.25
+                            </p>
+                            <p class="project-title">
+                                Stack
+                            </p>
+                            <div class="project-line">
+                            </div>
+                            <div class="project-stack">
+                                <img src="image/javascript.jpg">
+                                <img src="image/react.png">
+                                <img src="image/redux.png">
+                                <img src="image/styled-component.jpg">
+                                <img src="image/firebase.png">
+                            </div>
+                            <p class="project-text">
+                                • 반응형 레이아웃 <br/>
+                                • redux를 통한 상태관리 <br/>
+                                • Styled-component 스타일링 <br/>
+                                • firebase Auth 기능 구현 <br/>
+                                • firebase를 통한 배포 <br/>
+                            </p>
+                            <a class="project-link">
+                                Github Link →
+                            </a>
+                        </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-title">
-                            amazon →
-                        </div>      
+                        <img class="project-back" src="/image/amazon.jpg"/> 
+                        <div class="project-content">
+                            <div class="project-title">
+                                Amazon clone
+                            </div>
+                            <p class="project-period">
+                                2021.5.21~2021.5.25
+                            </p>
+                            <p class="project-title">
+                                Stack
+                            </p>
+                            <div class="project-line">
+                            </div>
+                            <div class="project-stack">
+                                <img src="image/javascript.jpg">
+                                <img src="image/react.png">
+                                <img src="image/redux.png">
+                                <img src="image/styled-component.jpg">
+                                <img src="image/firebase.png">
+                            </div>
+                            <p class="project-text">
+                                • 반응형 레이아웃 <br/>
+                                • redux를 통한 상태관리 <br/>
+                                • Styled-component 스타일링 <br/>
+                                • firebase Auth 기능 구현 <br/>
+                                • firebase를 통한 배포 <br/>
+                            </p>
+                            <a class="project-link">
+                                Github Link →
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -269,6 +366,17 @@
             <!-- contact(start) -->
             <section id="contact" class="main__section">
                 <h1 class="section-title">Contact</h1>
+                <p class="section-p">
+                    좋은 프로덕션은 좋은 사람과의 만남을 통해 만들어진다고 생각합니다. 저는 좋은 프로덕션을 만들 준비가 된 사람입니다.
+                </p>
+                <div class="contact-card contact-email">
+                    <h2><img class="contact-img" src="/image/mail.png" alt="mail">&nbsp;&nbsp;email</h2>
+                    <a href="mailto:iloo3012@gmail.com" rel="noopener noreferrer">iloo3012@gmail.com</a>
+                </div>
+                <div class="contact-card contact-phone">
+                    <h2><img class="contact-img" src="/image/smartphone.png" alt="phone">&nbsp;&nbsp;phone</h2>
+                    <p>010-9938-8190</p>
+                </div>
             </section>
             <!-- contact(end) -->
         </main>
@@ -277,13 +385,22 @@
     <!-- wrapper(end) -->
 
     <!-- footer(start) -->
-    <footer>
-        2021, <strong>김예찬</strong>의 포토 폴리오
-        <br>
-        방문해 주셔서 감사합니다.
+    <footer id="footer">
+        <div class="footer-wrapper">
+            <div class="wave wave-one"></div>
+            <div class="wave wave-two"></div>
+            <div class="wave wave-three"></div>
+            <div class="footer-text">2021, Kimyechan's Portfolio</div>
+        </div>
+
     </footer>
     <!-- footer(end) -->
-
+    <!-- Arrow up(start) -->
+    <button class="arrow-up">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Arrow up(end) -->
+    <img id="horse" src="image/horse.gif" alt="horse"/>
 </body>
 
-</html>
+</html> 

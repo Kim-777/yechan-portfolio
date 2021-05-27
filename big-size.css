@@ -3,6 +3,10 @@
 /* responsive: tablet ~ computer size */
 @media screen and (min-width: 995px) {
 
+    body {
+        padding: 0;
+    }
+    
     * {
         font-size: 16px;
     }
@@ -15,14 +19,14 @@
 
     main {
         width: 65%;
-        height: 90vh;
+        min-height: 78vh;
         padding-right: 8vw;
         max-width: 700px;
     }
 
     aside {
         width: 35%;
-        height: 90vh;
+        min-height: 78vh;
         margin: 0 0;
     }
 
@@ -53,5 +57,50 @@
 
     .project-title {
         text-align: left;
+    }
+
+    /* arrow none */
+    .arrow-up {
+        display: none;
+    }
+
+    .section-p {
+        text-decoration: underline;
+        font-style:italic;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
+    /* Index */
+    .index-card {
+        padding-bottom: 30px;
+    }
+
+    .index-card:nth-child(1) {
+        padding-top: 0;
+    }
+
+    .index-card > h2 {
+        text-align: left;
+    }
+    
+
+    #horse {
+        position: fixed;
+        width: 5%;
+        top: 5px;
+        right: 5px;
+    }
+
+    .index-card:last-child {
+        margin-bottom: 70px;
+    }
+
+    .contact-card {
+        text-align: left;
+    }
+
+    .contact-card > h2 {
+        justify-content:flex-start;
     }
 }
