@@ -5,12 +5,48 @@ let currentStatus = 0; // 컴퓨터 디스플레이 0, 모바일 1
 let currentSection = 0; // 현재 섹션
 let navOffsetTop = null;
 
+const sectionIds = ['#index', '#skill', '#project', '#contact'];
+
+const sections = sectionIds.map(id => document.querySelector(id));
+const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`));
+
+console.log(navItems);
 //  DOM
 const mainSection = document.querySelectorAll('.main__section');
 const navbar = document.querySelector('#navbar');
 const navMenu = document.querySelector('.navbar__menu');
 const arrowUp = document.querySelector('.arrow-up');
 const wrapper = document.querySelector('#wrapper');
+
+
+
+// const observerOptions = {
+//     root: null, // viewport
+//     rootMargin: '0px',
+//     threshold: 0.3,
+// }
+
+// const observer = new IntersectionObserver((entries, observer) => {
+//     entries.forEach(entry => {
+//         if(!entry.isIntersection && entry.intersectionRatio > 0) {
+//             const index = sectionIds.indexOf(`#${entry.target.id}`);
+//             let selectedIndex = 1;
+//             if(entry.boundingClientRect.y < 0) {
+//                 selectedIndex = index + 1;
+//             } else {
+//                 selectedIndex = index - 1;
+//             }
+//             console.log(selectedIndex);
+//             const navItem = navItems[selectedIndex];
+//             console.log(navItem);
+//             navItems.forEach(nav => nav.classList.remove('active'));
+
+//             navItem.classList.add('active');
+//         }
+//     })
+// }, observerOptions);
+
+// sections.forEach(section => observer.observe(section));
 
 // console.log(navMenu.children);
 // for(let menu of navMenu.children) {

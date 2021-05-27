@@ -46,8 +46,22 @@
         margin: 0;
     }
 
+    /* Index */
+    .index-card {
+        padding: 0 20px 30px;
+        margin-bottom: 40px;
+    }
+
+    .section-p {
+        margin-bottom: 40px;
+    }
+
     .section-title {
         text-align: left;
+    }
+
+    .skill-cards {
+        padding-bottom: 40px;
     }
 
     /* project */
