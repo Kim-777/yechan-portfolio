@@ -96,7 +96,7 @@ aside > p > strong {
     left: 0;
     margin-top: 50px;
     transition: all 300ms;
-    z-index: 100;
+    z-index: 5;
     padding: 10px 0;
 }
 
@@ -223,6 +223,11 @@ aside {
     padding: 43px 0;
     text-align: center;
     font-size: 2.2rem;
+}
+
+
+#skill-cards {
+    padding-bottom: 50px;
 }
 
 .skill-wrap,
@@ -438,6 +443,10 @@ aside {
 .contact-card > a {
     font-size:1.2rem;
     color: var(--color-dark-grey);
+}
+
+.contact-phone {
+    padding-bottom: 80px;
 }
 
 /* footer */

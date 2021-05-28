@@ -18,7 +18,7 @@ const navMenu = document.querySelector('.navbar__menu');
 const arrowUp = document.querySelector('.arrow-up');
 const wrapper = document.querySelector('#wrapper');
 
-
+console.log(sections);
 
 // const observerOptions = {
 //     root: null, // viewport
