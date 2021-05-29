@@ -258,7 +258,23 @@
                     지금까지의 결과물들입니다. 
                 </p>
                 <div class="project-wrapper">
-                    <div class="project-card-modal">
+                    <!-- width more than 994  -->
+                    <div class="project-not-mobile">
+                        <div class="project-logo-wrapper">
+                            <img class="project-logo-box" src="image/disney-logo.png" data-project="disney">
+                            <p>click me !</p>
+                        </div>
+                        <div class="project-logo-wrapper">
+                            <img class="project-logo-box" src="image/linkedin-logo.png" data-project="linkedin">
+                            <p>click me !</p>
+                        </div>
+                        <div class="project-logo-wrapper">
+                            <img class="project-logo-box" src="image/amazon-logo.png" data-project="amazon">
+                            <p>click me !</p>
+                        </div>
+                    </div>
+                    <!-- width more than 994 -->
+                    <div class="project-card-modal" data-name="disney">
                         <div class="project-card">
                             <img class="project-back" src="image/disney.jpg" /> 
                             <div class="project-content">
@@ -295,9 +311,10 @@
                                     Site 바로가기 →
                                 </a>
                             </div>
+                            <button class="project-button-only-modal"><i class="fas fa-times" onclick="clearCurrentProject();"></i></button>
                         </div>                        
                     </div>
-                    <div class="project-card-modal">
+                    <div class="project-card-modal" data-name="linkedin">
                         <div class="project-card">
                             <img class="project-back" src="image/linkedin.png" /> 
                             <div class="project-content">
@@ -334,9 +351,10 @@
                                     Site 바로가기 →
                                 </a>
                             </div>
+                            <button class="project-button-only-modal"><i class="fas fa-times" onclick="clearCurrentProject();"></i></button>
                         </div>
                     </div>
-                    <div class="project-card-modal">
+                    <div class="project-card-modal" data-name="amazon">
                         <div class="project-card">
                             <img class="project-back" src="image/amazon.jpg"/> 
                             <div class="project-content">
@@ -372,8 +390,9 @@
                                 <br>
                                 <a class="project-link">
                                     Site 바로가기 →
-                                </a
+                                </a>
                             </div>
+                            <button class="project-button-only-modal"><i class="fas fa-times" onclick="clearCurrentProject();"></i></button>
                         </div>
                     </div>
                 </div>

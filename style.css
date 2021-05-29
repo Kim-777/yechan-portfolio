@@ -98,11 +98,9 @@ aside > p > strong {
     transition: all 300ms;
     z-index: 5;
     padding: 10px 0;
+    background: #ffffffe6;
 }
 
-.navbar-background {
-    background: rgba(255, 254, 254, 0.9);
-}
 
 .navbar__menu {
     display : flex;
@@ -118,7 +116,7 @@ aside > p > strong {
     transition: all 300ms;
 }
 
-.active {
+.navbar__menu__item.active {
     border: 1px solid #70cfef;
     background:#70cfef77;
     color:white;
@@ -285,6 +283,10 @@ aside {
 
 /* project-section */
 
+.project-not-mobile {
+    display: none;
+}
+
 .project-wrapper {
     display: flex;
     flex-direction: column;
@@ -376,6 +378,9 @@ aside {
     color:var(--color-sky);
 }
 
+.project-button-only-modal {
+    display: none;
+}
 
 
 /* display:none */

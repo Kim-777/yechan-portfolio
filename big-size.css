@@ -65,14 +65,20 @@
     }
 
     /* project */
+
+    .project-wrapper {
+        flex-direction: row;
+    }
     .project-card {
         width: 40%;
         background: white;
+        position: relative;
     }
 
     .project-card-modal {
         position:fixed;
-        z-index: 10;
+        z-index: -1;
+        opacity: 0;
         background-color:rgba(202, 199, 199, 0.185);
         top: 0;
         left: 0;
@@ -81,10 +87,74 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: opacity 300ms;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    .project-card-modal.active {
+        z-index: 10;
+        opacity: 1;
     }
 
     .project-title {
         text-align: left;
+    }
+
+
+    .project-not-mobile {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .project-logo-box {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        object-position: center center;
+        border: 1px solid rgba(202, 199, 199, 0.185);
+        border-radius: 10px;
+        transition: all 300ms;
+        box-shadow: rgb(200 200 200 / 69%) 0px 26px 30px -10px, rgb(230 230 230 / 73%) 0px 16px 10px -10px;
+        cursor: pointer;
+    }
+
+    .project-logo-box:hover {
+        transform: translateY(-5px) rotate(20deg);
+    }
+
+    .project-logo-box:hover + p {
+        opacity: 1;
+    }
+
+    .project-logo-wrapper > p {
+        opacity: 0;
+        font-size: 5px;
+        transition: all 300ms;
+    }
+
+    .project-logo-wrapper {
+        padding-right: 25px;
+    }
+
+    .project-button-only-modal {
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        right: 13px;
+        cursor: pointer;
+    }
+
+    .fa-times {
+        cursor: pointer;
+        transition: all 300ms;
+    }
+
+    .fa-times:hover {
+        color:rgba(184, 48, 38, 0.87);
+        transform:scale(1.05);
     }
 
     /* arrow none */

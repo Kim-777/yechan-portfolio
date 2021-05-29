@@ -2,15 +2,17 @@
 
 // variable
 let currentStatus = 0; // 컴퓨터 디스플레이 0, 모바일 1
-let currentSection = 0; // 현재 섹션
-let navOffsetTop = null;
+let currentSection = 0; // 현재 섹션 index로 하는 게 편할듯
+let currentProject = null;
 
 const sectionIds = ['#index', '#skill', '#project', '#contact'];
+const projects = ['disney', 'linkedin', 'amazon'];
+
 
 const sections = sectionIds.map(id => document.querySelector(id));
 const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`));
-
-console.log(navItems);
+const logoBoxs = projects.map(id => document.querySelector(`[data-project="${id}"]`));
+console.log('logoBoxs', logoBoxs);
 //  DOM
 const mainSection = document.querySelectorAll('.main__section');
 const navbar = document.querySelector('#navbar');
@@ -18,7 +20,11 @@ const navMenu = document.querySelector('.navbar__menu');
 const arrowUp = document.querySelector('.arrow-up');
 const wrapper = document.querySelector('#wrapper');
 
-console.log(sections);
+let currentNav = navItems[currentSection];
+currentNav.classList.add('active');
+
+
+console.log('mainSection[0]', mainSection[0]);
 
 // const observerOptions = {
 //     root: null, // viewport
@@ -53,15 +59,43 @@ console.log(sections);
 //     console.log(menu);
 // }
 
+const clearCurrentProject = () => {
+    currentProject.classList.remove('active');
+    currentProject = null;
+}
+
+const goToCurrentSection = (currentStatus) => {
+    if (currentStatus) {
+        setTimeout(() => {
+            mainSection[currentSection].scrollIntoView({behavior: 'smooth'});
+        }, 300);
+    } else {
+        console.log(currentSection);
+        console.log('????')
+        for (let section of sections) {
+            if(section === mainSection[currentSection]) {
+                console.log(section);
+                section.classList.remove('noShow');
+            } else {
+                section.classList.add('noShow');
+            }
+        }
+    }
+}
+
 const mobileIndexHandler = (event) => {
     // console.log('here')
     // console.log(event.target.dataset.link);
     const target = event.target;
     const link = target.dataset.link;
+
     if(!link) {
         return;
     }
+
+    currentSection = parseInt(target.dataset.index);
     const scrollTo = document.querySelector(link);
+    console.log('mobile currentSection', currentSection);
     scrollTo.scrollIntoView({behavior: 'smooth'});
 }
 
@@ -113,19 +147,6 @@ const setIndexHandler = () => {
     }
 }
 
-const setNavOffsetTop = () => {
-    navOffsetTop = navbar.offsetTop
-    // console.log(navOffsetTop);
-}
-
-const setNavBackground = () => {
-    // console.log('window.pageYOffset', window.pageYOffset, 'navOffsetTop', navOffsetTop);
-    if(window.pageYOffset > navOffsetTop) {
-        navbar.classList.add('navbar-background');
-    } else {
-        navbar.classList.remove('navbar-background');
-    }
-}
 
 // event handlers
 
@@ -135,13 +156,23 @@ window.addEventListener('load', () => {
         currentStatus = 0
     } else {
         currentStatus = 1;
+        if(window.pageYOffset > 800) {
+            arrowUp.classList.add('visible');
+        }
     }
+
+
     setIndexHandler();
-    setNavOffsetTop();
     indexHandlerChange(currentStatus);
 });
+
 window.addEventListener('scroll', () => {
-    setNavBackground();
+    
+    if(!currentStatus) {
+        console.log('모바일 창이 아닌 경우 이벤트 X');
+        return;
+    }
+
     if(window.pageYOffset > 800) {
         arrowUp.classList.add('visible');
     } else {
@@ -164,6 +195,10 @@ window.addEventListener('resize', () => {
         tmpStatus = 0;
     } else {
         tmpStatus = 1;
+        for(let section of sections) {
+            console.dir(section.offsetHeight);
+        }
+        console.dir(document.querySelector('aside'));
     }
 
     if(currentStatus === tmpStatus) {
@@ -173,22 +208,36 @@ window.addEventListener('resize', () => {
         currentStatus = tmpStatus;
         console.log('currentStatus', currentStatus);
         indexHandlerChange(currentStatus);
+        goToCurrentSection(currentStatus);
+
+        if(currentProject) {
+            clearCurrentProject();
+        }
     }
 
-    if(currentStatus) {
-        setNavOffsetTop();
-    }
 })
 
 // nav click event
 navMenu.addEventListener('click', (event) => {
     if(!event.target.dataset.index) return;
-    for(let menu of navMenu.children) {
-        if(menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            break;
-        }
-    }
+
+    currentNav.classList.remove('active');
+    // for(let menu of navMenu.children) {
+    //     if(menu.classList.contains('active')) {
+    //         menu.classList.remove('active');
+    //         break;
+    //     }
+    // }
 
     event.target.classList.add('active');
+    currentNav = event.target;
 });
+
+//logoBoxs click event
+logoBoxs.map(logobox => {
+    logobox.addEventListener('click', () => {
+        console.log('dataset-project', logobox.dataset.project);
+        currentProject = document.querySelector(`[data-name="${logobox.dataset.project}"]`);
+        currentProject.classList.add('active');
+    })
+})
