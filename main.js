@@ -2,8 +2,14 @@
 
 // variable
 let currentStatus = 0; // 컴퓨터 디스플레이 0, 모바일 1
-let currentSection = 0; // 현재 섹션 index로 하는 게 편할듯
+let currentSection = 0; // 현재 활성화된 section
 let currentProject = null;
+let heightExceptSections = computeHeightExceptSections();
+let sectionsHeight = [];
+let prevScrollHeight = heightExceptSections; // mobile scroll event를 위한 변수. 
+let nowPointer = window.pageYOffset + parseInt(window.innerHeight/2);
+
+console.log(heightExceptSections);
 
 const sectionIds = ['#index', '#skill', '#project', '#contact'];
 const projects = ['disney', 'linkedin', 'amazon'];
@@ -20,44 +26,20 @@ const navMenu = document.querySelector('.navbar__menu');
 const arrowUp = document.querySelector('.arrow-up');
 const wrapper = document.querySelector('#wrapper');
 
-let currentNav = navItems[currentSection];
+let currentNav = navItems[currentSection]; // 현재 선택된 nav
 currentNav.classList.add('active');
 
 
-console.log('mainSection[0]', mainSection[0]);
+function computeHeightExceptSections () {
 
-// const observerOptions = {
-//     root: null, // viewport
-//     rootMargin: '0px',
-//     threshold: 0.3,
-// }
+    console.log(document.querySelector('#navbar').offsetHeight);
+    console.log(document.querySelector('aside').offsetHeight);
+    console.log(parseInt(getComputedStyle(document.querySelector('#wrapper')).paddingTop));
+    
+    return document.querySelector('#navbar').offsetHeight + document.querySelector('aside').offsetHeight + parseInt(getComputedStyle(document.querySelector('#wrapper')).paddingTop);
 
-// const observer = new IntersectionObserver((entries, observer) => {
-//     entries.forEach(entry => {
-//         if(!entry.isIntersection && entry.intersectionRatio > 0) {
-//             const index = sectionIds.indexOf(`#${entry.target.id}`);
-//             let selectedIndex = 1;
-//             if(entry.boundingClientRect.y < 0) {
-//                 selectedIndex = index + 1;
-//             } else {
-//                 selectedIndex = index - 1;
-//             }
-//             console.log(selectedIndex);
-//             const navItem = navItems[selectedIndex];
-//             console.log(navItem);
-//             navItems.forEach(nav => nav.classList.remove('active'));
+}
 
-//             navItem.classList.add('active');
-//         }
-//     })
-// }, observerOptions);
-
-// sections.forEach(section => observer.observe(section));
-
-// console.log(navMenu.children);
-// for(let menu of navMenu.children) {
-//     console.log(menu);
-// }
 
 const clearCurrentProject = () => {
     currentProject.classList.remove('active');
@@ -66,9 +48,11 @@ const clearCurrentProject = () => {
 
 const goToCurrentSection = (currentStatus) => {
     if (currentStatus) {
+        console.log(mainSection[currentSection]);
+        console.log('gotoCurrentMobile')
         setTimeout(() => {
             mainSection[currentSection].scrollIntoView({behavior: 'smooth'});
-        }, 300);
+        }, 400);
     } else {
         console.log(currentSection);
         console.log('????')
@@ -147,15 +131,28 @@ const setIndexHandler = () => {
     }
 }
 
+function computeSectionsHeight() {
+
+    let prevAllHeight = heightExceptSections;
+
+    for(let section of sections) {
+        prevAllHeight += section.offsetHeight;
+        sectionsHeight.push(prevAllHeight);
+    }
+
+    // console.log(sectionsHeight);
+}
+
 
 // event handlers
 
 window.addEventListener('load', () => {
-    // console.log(window.innerWidth)
+    console.log('load');
     if(window.innerWidth > 994) {
         currentStatus = 0
     } else {
         currentStatus = 1;
+        computeSectionsHeight();
         if(window.pageYOffset > 800) {
             arrowUp.classList.add('visible');
         }
@@ -166,19 +163,54 @@ window.addEventListener('load', () => {
     indexHandlerChange(currentStatus);
 });
 
-window.addEventListener('scroll', () => {
-    
+
+let tmpIndex = 0;
+
+function scrollLoop() {
+
+    prevScrollHeight = heightExceptSections;
+
     if(!currentStatus) {
         console.log('모바일 창이 아닌 경우 이벤트 X');
         return;
     }
+    // console.log('currentSection',currentSection)
+    nowPointer = window.pageYOffset + parseInt(window.innerHeight/2);
+
+    for(let i = 0; i < currentSection; i++) {
+        prevScrollHeight += sections[i].offsetHeight;
+        // console.log(`sections[i].offsetHeight ${i}`, sections[i].offsetHeight);
+    }
+
+    // console.log(prevScrollHeight);
+
+    if(nowPointer > prevScrollHeight + sections[currentSection].offsetHeight) {
+        currentNav.classList.remove('active');
+        currentSection++;
+        currentNav = navItems[currentSection];
+        currentNav.classList.add('active');
+    }
+
+    if(nowPointer < prevScrollHeight) {
+        if(currentSection === 0) return;
+        currentNav.classList.remove('active');
+        currentSection--;
+        currentNav = navItems[currentSection];
+        currentNav.classList.add('active');
+    }
+
+    console.log(nowPointer);
+
 
     if(window.pageYOffset > 800) {
         arrowUp.classList.add('visible');
     } else {
         arrowUp.classList.remove('visible');
     }
-})
+
+}
+
+window.addEventListener('scroll', scrollLoop);
 
 
 arrowUp.addEventListener('click', () => {
@@ -195,14 +227,16 @@ window.addEventListener('resize', () => {
         tmpStatus = 0;
     } else {
         tmpStatus = 1;
-        for(let section of sections) {
-            console.dir(section.offsetHeight);
-        }
-        console.dir(document.querySelector('aside'));
+        sectionsHeight = [];
+        
+        heightExceptSections = computeHeightExceptSections()
+        console.log(heightExceptSections)
+
+        computeSectionsHeight();
     }
 
     if(currentStatus === tmpStatus) {
-        console.log(currentStatus);
+        console.log('currentStatus', currentStatus);
     } else {
         setIndexHandler();
         currentStatus = tmpStatus;
@@ -222,15 +256,11 @@ navMenu.addEventListener('click', (event) => {
     if(!event.target.dataset.index) return;
 
     currentNav.classList.remove('active');
-    // for(let menu of navMenu.children) {
-    //     if(menu.classList.contains('active')) {
-    //         menu.classList.remove('active');
-    //         break;
-    //     }
-    // }
 
     event.target.classList.add('active');
     currentNav = event.target;
+    currentSection = parseInt(event.target.dataset.index);
+    console.log(currentSection);
 });
 
 //logoBoxs click event
