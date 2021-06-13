@@ -12,7 +12,7 @@ let nowPointer = window.pageYOffset + parseInt(window.innerHeight/2);
 console.log(heightExceptSections);
 
 const sectionIds = ['#index', '#skill', '#project', '#contact'];
-const projects = ['disney', 'linkedin', 'amazon'];
+const projects = ['disney', 'amazon'];
 
 
 const sections = sectionIds.map(id => document.querySelector(id));
